@@ -26,7 +26,7 @@
 				<p><strong>Descripción</strong></p>
 				<p>{{$producto->descripcion}}</p>
 				<p>
-					
+					@include("en_carrito_de_compras.form", ['producto' => $producto])
 				</p>
 			</div>
 		</div>

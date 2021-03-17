@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home','MainController@home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('productos', 'ProductController');
+
+Route::get('carrito', 'ShoppingCartController@index');
+
+Route::resource('in_shopping_carts', 'InShoppingCartController',[
+	'only' => ['store', 'destroy']
+]);

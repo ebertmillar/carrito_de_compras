@@ -38,6 +38,14 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <!-- carrito de compras - shopping cart -->
+                        <a href="" class="nav-link "><li>
+                            Mi carrito:
+                            <span>
+                            {{$productsQuantity}}
+                            </span>
+                        </li></a>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

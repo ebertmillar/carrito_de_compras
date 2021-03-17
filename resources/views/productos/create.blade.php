@@ -4,7 +4,7 @@
 
 
 <div class="container">
-<form method="POST" action="{{url(/in_shopping_carts)}}">
+<form method="POST" action="{{ route('productos.store') }}">
     @csrf
 
   <div class="form-group">
