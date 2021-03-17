@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Paypal;
 use App\ShoppingCart;
+use Illuminate\Http\Request;
 
 class ShoppingCartController extends Controller
 {
@@ -13,16 +14,17 @@ class ShoppingCartController extends Controller
 
         $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id);
 
-        // $paypal = new Paypal($shopping_cart);
-        // $payment = $paypal->generate();
+        $paypal = new Paypal($shopping_cart);
 
-        // return $payment;
+        $payment = $paypal->generate();
 
-        $productos = $shopping_cart->products()->get();
+        return $payment;
 
-        $total = $shopping_cart->total();
+        // $productos = $shopping_cart->products()->get();
+
+        // $total = $shopping_cart->total();
 
 
-        return view('carrito_de_compras.index', ['productos' => $productos, 'total' => $total ]);
+        // return view('carrito_de_compras.index', ['productos' => $productos, 'total' => $total ]);
     }
 }

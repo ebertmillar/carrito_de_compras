@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home','MainController@home');
+Route::get('/','MainController@home');
 
 Auth::routes();
+
+Route::get('/home', 'HomeController@index');
 
 Route::resource('productos', 'ProductController');
 
@@ -24,3 +26,5 @@ Route::get('carrito', 'ShoppingCartController@index');
 Route::resource('in_shopping_carts', 'InShoppingCartController',[
 	'only' => ['store', 'destroy']
 ]);
+
+Route::get('/payments/store', 'PaymentController@store');
