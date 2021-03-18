@@ -9,25 +9,25 @@ class ShoppingCart extends Model
 {
     protected $fillable = ['estado'];
 
-    // public function generateCustomID(){
-    //     return md5("$this->id $this->update_up");
+    public function generateCustomID(){
+        return md5("$this->id $this->update_up");
 
-    // }
+    }
 
-    // public function updateCustonID(){
-    //     $this->estado = 'approved';
-    //     $this->customid = $this->generateCustomID();
-    //     $this->save();
-    // }
+    public function updateCustonID(){
+        $this->estado = 'approved';
+        $this->customid = $this->generateCustomID();
+        $this->save();
+    }
 
-    // public function approved(){
-    //     $this->updateCustonID();
-    // }
+    public function approved(){
+        $this->updateCustonID();
+    }
 
 
-    // public function order(){
-    //     return $this->hasOne('App\Order')->first();
-    // }
+    public function order(){
+        return $this->hasOne('App\Order')->first();
+    }
     
     public function inShoppingCart(){
         return $this->hasMany('App\InShoppingCart');

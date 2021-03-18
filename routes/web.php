@@ -23,8 +23,17 @@ Route::resource('productos', 'ProductController');
 
 Route::get('carrito', 'ShoppingCartController@index');
 
+Route::get('/payments/store', 'PaymentController@store');
+
+
 Route::resource('in_shopping_carts', 'InShoppingCartController',[
 	'only' => ['store', 'destroy']
 ]);
 
-Route::get('/payments/store', 'PaymentController@store');
+Route::resource('compras', 'ShoppingCartController', [
+	'only' => ['show']
+]);
+
+Route::resource('orders', 'OrdersController', [
+	'only' => ['index', 'update']
+]);
