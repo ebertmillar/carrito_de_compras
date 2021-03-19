@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 
 class InShoppingCartController extends Controller
 {
+    public function __construct(){
+        $this->middleware('shoppingcart');
+    }
     
     public function store(Request $request)
     {
-	     $shopping_cart_id = \Session::get('shopping_cart_id');
-     	 $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id);
+     	 $shopping_cart = $request->shopping_cart;
 
      	 $carrito = InShoppingCart::create([
 

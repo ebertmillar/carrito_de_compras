@@ -44,7 +44,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <!-- carrito de compras - shopping cart -->
-                        <a href="" class="nav-link "><li>
+                        <a href="{{ url('/carrito')}}" class="nav-link "><li>
                             Mi carrito:
                             <span>
                             {{$productsQuantity}}

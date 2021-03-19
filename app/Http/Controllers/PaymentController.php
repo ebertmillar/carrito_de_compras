@@ -20,13 +20,14 @@ use PayPal\Rest\ApiContext;
 
 
 class PaymentController extends Controller
-{	
+{
+    public function __construct(){
+        $this->middleware('shoppingcart');
+    }	
 
 	public function store(Request $request){
     	
-    	$shopping_cart_id = \Session::get('shopping_cart_id');
-
-        $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id);
+    	$shopping_cart = $request->shopping_cart;
 
         $paypal = new Paypal($shopping_cart);
 
