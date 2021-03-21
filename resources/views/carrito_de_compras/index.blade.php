@@ -27,6 +27,9 @@
            </tr>
         </tbody>    
       </table>
+      <div class="text-right">
+          @include('carrito_de_compras.form')
+      </div>
     </div>
   </div>
 

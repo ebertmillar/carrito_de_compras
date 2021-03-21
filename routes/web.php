@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::resource('productos', 'ProductController');
 
 Route::get('carrito', 'ShoppingCartController@index');
+Route::post('carrito', 'ShoppingCartController@pagar');
 
 Route::get('/payments/store', 'PaymentController@store');
 

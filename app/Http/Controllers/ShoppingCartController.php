@@ -24,15 +24,17 @@ class ShoppingCartController extends Controller
 
         $total = $shopping_cart->total();
 
-        $paypal = new Paypal($shopping_cart);
-
-        $payment = $paypal->generate();
-
-        return $payment;
-
         return view('carrito_de_compras.index', ['productos' => $productos, 'total' => $total ]);
 
 
+    }
+
+    public function pagar(Request $request){
+        $shopping_cart = $request->shopping_cart;
+
+        $paypal = new Paypal($shopping_cart);
+        $payment = $paypal->generate();
+        return $payment;
     }
 
 
