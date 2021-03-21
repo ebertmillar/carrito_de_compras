@@ -10948,3 +10948,8 @@ a.text-dark:focus {
   padding: 0px 5px;
 }
 
+.product-image {
+  max-width: 100%;
+  padding: 10px;
+}
+

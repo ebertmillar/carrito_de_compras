@@ -16,18 +16,22 @@
                <th>Precio</th>
                <th></th>
                <th></th>
+               <th></th>
              </tr>
            </thead>
            <tbody class="bg-white">
                @foreach($productos as $producto)
-               <tr>
-                 <td> {{ $producto->id }}</td>
-                 <td> {{ $producto->titulo }}</td>
-                 <td> {{ $producto->descripcion }}</td>
-                 <td> {{ $producto->precio }}</td>
-                 <td> <a href="{{route('productos.edit', $producto->id)}}" class="btn btn-primary">editar</a></td>
-                 <td> @include('productos.delete')</td>
-               </tr>
+                <tr>
+                 
+                   <td> {{ $producto->id }}</td>
+                   <td>{{ $producto->titulo }}</td>
+                   <td> {{ $producto->descripcion }}</td>
+                   <td> {{ $producto->precio }}</td>
+                   <td><a href="{{route('productos.show',$producto->id)}}" class="btn btn-success">ver</a></td>
+                   <td> <a href="{{route('productos.edit', $producto->id)}}" class="btn btn-primary">editar</a></td>
+                   <td> @include('productos.delete')</td>
+                 
+                </tr>  
                @endforeach
             </tbody>    
           </table>
@@ -36,3 +40,5 @@
 
 
 @endsection
+
+

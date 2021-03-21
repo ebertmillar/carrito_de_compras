@@ -7,6 +7,10 @@ use PayPal\Api\Item;
 
 class Product extends Model
 {
+	public function scopeLatest($query){
+		return $query->orderBy('id', 'desc');
+	}
+
 	public function paypalItems(){
 	$item = new Item();
 	return $item->setName($this->titulo)
