@@ -37,6 +37,7 @@ class PaymentController extends Controller
             \Session::remove('shopping_cart_id');
             $order = Order::createFromPaypalResponse($response,$shopping_cart);
             $shopping_cart->approved();
+
         }
 
         return view("carrito_de_compras.completed", [
