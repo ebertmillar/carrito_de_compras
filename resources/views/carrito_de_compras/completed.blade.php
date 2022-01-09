@@ -34,6 +34,10 @@
 					<div class="col">Estado y Pais: </div>
 					<div class="col">{{$order->state}} {{$order->country_code}} </div>
 				</div>
+				<div class="row pt-2 pl-4">
+					<div class="col">Total </div>
+					<div class="col">{{$order->total}} </div>
+				</div>
 				<br>
 				<hr>   
 				<div class="text-center">
