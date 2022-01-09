@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Order;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -29,6 +30,13 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
+        Order::created(function($order){
+            $order->sendMail();
+        });
+
+        Order::updated(function($order){
+            $order->sendUpdateMail();
+        });
         //
     }
 }
